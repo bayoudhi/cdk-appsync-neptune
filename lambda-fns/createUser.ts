@@ -10,7 +10,7 @@ async function createUser(user: User) {
   const graph = new Graph();
   const g = graph.traversal().withRemote(dc);
 
-  const res = await g.addV("user").property("name", user.name).next();
+  const res = await g.addV("user::person").property("name", user.name).next();
   console.log(res);
   dc.close();
   return {
