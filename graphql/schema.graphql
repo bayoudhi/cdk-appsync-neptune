@@ -1,24 +1,20 @@
-type Post {
+type User {
   id: ID!
-  title: String!
-  content: String!
+  name: String!
 }
 
-input PostInput {
-  id: ID
-  title: String!
-  content: String!
+input UserInput {
+  name: String!
 }
 
 type Query {
-  listPosts: [Post]
+  listUsers: [User!]!
 }
 
 type Mutation {
-  createPost(post: PostInput!): Post
+  createUser(user: UserInput!): User!
 }
 
-type Subscription {
-  onCreatePost: Post
-    @aws_subscribe(mutations: ["createPost"])
-}
+# type Subscription {
+#   onCreatePost: Post @aws_subscribe(mutations: ["createPost"])
+# }

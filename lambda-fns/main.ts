@@ -1,23 +1,23 @@
-import createPost from './createPost';
-import listPosts from './listPosts';
-import Post from './Post';
+import createUser from "./createUser";
+import listUsers from "./listUsers";
+import User from "./User";
 
 type AppSyncEvent = {
   info: {
-    fieldName: string
-  },
+    fieldName: string;
+  };
   arguments: {
-    post: Post
-  }
-}
+    user: User;
+  };
+};
 
-exports.handler = async (event:AppSyncEvent) => {
+exports.handler = async (event: AppSyncEvent) => {
   switch (event.info.fieldName) {
-    case "createPost":
-      return await createPost(event.arguments.post);
-    case "listPosts":
-      return await listPosts();
+    case "createUser":
+      return await createUser(event.arguments.user);
+    case "listUsers":
+      return await listUsers();
     default:
       return null;
   }
-}
+};
